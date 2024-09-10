@@ -1,13 +1,49 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:fitsSystemWindows="true"
+android:id="@+id/splashFragment"
+android:background="@drawable/splash_screen_background"
+tools:context="authenitcation.SplashFragment">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginBottom="150dp"
+    android:text="@string/get_cooking"
+    android:textSize="75sp"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:textStyle="bold"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginBottom="100dp"
+    android:text="@string/simple_way_to_find_tasty_recipe"
+    android:textSize="20sp"
+    android:textColor="@color/white"
+    android:gravity="center" />
+
+<com.airbnb.lottie.LottieAnimationView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="authenitcation.SplashFragment">
+    android:layout_height="200dp"
+    app:lottie_autoPlay="true"
+    app:lottie_loop="true"
+    app:lottie_rawRes="@raw/cap_animation"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="100dp"
+    />
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

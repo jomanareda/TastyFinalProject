@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.tastyfinalproject.R
 
 class loginFragment : Fragment() {
@@ -19,9 +20,7 @@ class loginFragment : Fragment() {
        val view=   inflater.inflate(R.layout.fragment_login, container, false)
         val signUpText : TextView = view.findViewById(R.id.signUpText)
         signUpText.setOnClickListener{
-            val fragment = registerFragment()
-            val transaction = fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.nav_host_fragment_auth, fragment)?.commit()
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
 

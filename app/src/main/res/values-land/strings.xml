@@ -2,4 +2,16 @@
 <resources>
     <string name="get_cooking">Get Cooking</string>
     <string name="simple_way_to_find_tasty_recipe">simple way to find tasty recipe</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="email">Email</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="hello">Hello</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="or_sign_in_with">________ Or Sign in With ________</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sing_up">Sing Up</string>
+    <string name="facebook">facebook</string>
+    <string name="google">google</string>
 </resources>

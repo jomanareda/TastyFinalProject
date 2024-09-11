@@ -1,13 +1,261 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="authenitcation.registerFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="authenitcation.registerFragment"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="25dp" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/createText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/create_an_account"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/guideTop"
+        app:layout_constraintStart_toStartOf="@+id/guideStart" />
+    <TextView
+        android:id="@+id/letsText"
+        android:layout_width="235sp"
+        android:layout_height="0dp"
+        android:text="@string/let_s_help_you_sey_up_your_account_it_won_t_take_long"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/createText"
+        app:layout_constraintStart_toStartOf="@+id/guideStart" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/nameText_register"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/name"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/letsText"
+        app:layout_constraintStart_toStartOf="@+id/guideStart" />
+    <EditText
+        android:id="@+id/nameET_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints="name"
+        android:ems="40"
+        android:inputType="textPersonName"
+        android:hint="@string/enter_name"
+        android:background="@drawable/edittext"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@+id/guideStart"
+        app:layout_constraintTop_toBottomOf="@id/nameText_register" />
+    <TextView
+        android:id="@+id/emailText_register"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/email"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/nameET_register"
+        app:layout_constraintStart_toStartOf="@+id/guideStart" />
+    <EditText
+        android:id="@+id/EmailET_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints="email"
+        android:ems="30"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edittext"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        android:hint="@string/enter_email"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintTop_toBottomOf="@id/emailText_register" />
+    <TextView
+        android:id="@+id/passwordText_register"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/password"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/EmailET_register"
+        app:layout_constraintStart_toStartOf="@+id/guideStart" />
+    <EditText
+        android:id="@+id/passwordET_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints="password"
+        android:ems="30"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideStart"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintTop_toBottomOf="@id/passwordText_register" />
+    <TextView
+        android:id="@+id/confirmPasswordText_register"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/confirm_password"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/passwordET_register"
+        app:layout_constraintStart_toStartOf="@+id/guideStart"/>
+    <EditText
+        android:id="@+id/confirmPasswordET_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints="password"
+        android:ems="30"
+        android:hint="@string/retype_password"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@+id/guideStart"
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordText_register" />
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/accept_terms_condition"
+        android:textColor="@color/orange"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordET_register"
+        app:layout_constraintStart_toStartOf="@+id/guideStart" />
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="@string/sign_up"
+        android:layout_marginTop="10dp"
+        android:paddingEnd="120dp"
+        android:paddingStart="120dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green"
+        android:drawableEnd="@drawable/arrow"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/guideStart"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintTop_toBottomOf="@id/checkbox"/>
+
+    <TextView
+        android:id="@+id/OrSignInWith"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn"
+        android:text="@string/or_sign_in_with"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/googleButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableEnd="@drawable/google"
+        android:text="@string/google"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="10dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/facebookButton"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintTop_toBottomOf="@+id/OrSignInWith"/>
+
+    <Button
+        android:id="@+id/facebookButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:drawableEnd="@drawable/facebook"
+        android:layout_marginTop="10dp"
+        android:paddingStart="8dp"
+        android:text="@string/facebook"
+        android:paddingEnd="8dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toEndOf="@id/googleButton"
+        app:layout_constraintTop_toBottomOf="@+id/OrSignInWith"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/dontHaveAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:gravity="center"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:text="@string/already_a_member"
+        app:layout_constraintEnd_toStartOf="@id/signInText"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintTop_toBottomOf="@+id/facebookButton"
+        app:layout_constraintBottom_toBottomOf="@id/guideBottom"/>
+
+    <TextView
+        android:id="@+id/signInText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/sign_in"
+        android:textColor="@color/orange"
+        android:textSize="15sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/guideBottom"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toEndOf="@id/dontHaveAccount"
+        app:layout_constraintTop_toBottomOf="@+id/facebookButton"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

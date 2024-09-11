@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="authenitcation.loginFragment"
     android:background="@color/white">
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideEnd"
         android:layout_width="wrap_content"
@@ -71,14 +72,13 @@
         android:layout_height="50dp"
         android:autofillHints="email"
         android:ems="30"
+        android:inputType="textEmailAddress"
+        android:hint="@string/enter_email"
         android:background="@drawable/edittext"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:layout_marginTop="5dp"
         android:textSize="13sp"
-        android:inputType="textEmailAddress"
-        android:hint="@string/enter_email"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/guideStart"
         app:layout_constraintEnd_toEndOf="@id/guideEnd"
         app:layout_constraintTop_toBottomOf="@id/emailText" />
@@ -131,12 +131,13 @@
         android:paddingStart="120dp"
         android:gravity="center"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/forget_password"
-        app:layout_constraintStart_toStartOf="@id/guideStart"
-        app:layout_constraintEnd_toEndOf="@id/guideEnd"
         android:backgroundTint="@color/green"
         android:drawableEnd="@drawable/arrow"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/forget_password"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"/>
+
     <TextView
         android:id="@+id/OrSignInWith"
         android:layout_width="wrap_content"

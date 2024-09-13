@@ -3,7 +3,7 @@ package network
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitInstance {
+object  RetrofitInstance {
     private const val BASE_URL = "https://www.themealdb.com/"
 
     val api: RecipeApiService by lazy {

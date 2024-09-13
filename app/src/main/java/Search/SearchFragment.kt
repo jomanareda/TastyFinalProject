@@ -3,32 +3,37 @@ package Search
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.MyAdapter
 import com.example.tastyfinalproject.R
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import network.Meal
 
 class SearchFragment : Fragment() {
 
-    private lateinit var searchEditText: TextInputLayout
+    private lateinit var searchTextInputLayout: TextInputLayout
+    private lateinit var searchEditText: TextInputEditText
     private lateinit var filterButton: ImageButton
     private lateinit var recyclerView: RecyclerView
-    private var allMeals: MutableList<Meal> = mutableListOf() // Initialize as an empty list
+    private lateinit var myAdapter: MyAdapter
+
+    private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Retrieve meals list from arguments
-        arguments?.let {
-            val mealsList = it.getSerializable("mealsList") as? List<Meal>
-            allMeals = mealsList?.toMutableList() ?: mutableListOf()
+
+        viewModel.meals.observe(this) { meals ->
+            updateRecyclerView(meals)
         }
     }
 
@@ -42,49 +47,49 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        searchEditText = view.findViewById(R.id.searchText)
+        searchTextInputLayout = view.findViewById(R.id.inputLaout)
+        searchEditText = searchTextInputLayout.findViewById(R.id.searchText)
         filterButton = view.findViewById(R.id.filter)
         recyclerView = view.findViewById(R.id.SearchrecyclerView)
 
         setupRecyclerView()
         setupSearch()
         setupFilter()
+
+
+        viewModel.fetchMeals()
     }
 
     private fun setupRecyclerView() {
+        myAdapter = MyAdapter(emptyList())
         recyclerView.layoutManager = GridLayoutManager(context, 2)
-        recyclerView.adapter = MyAdapter(allMeals)
+        recyclerView.adapter = myAdapter
     }
 
     private fun setupSearch() {
-        searchEditText.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                Toast.makeText(requireContext(), "search with recipe name", Toast.LENGTH_SHORT).show()
-            } else {
-                val query = searchEditText.text.toString()
+        searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val query = s.toString()
                 if (query.isNotEmpty()) {
-                    performSearch(query)
+                    viewModel.performSearch(query)
                 } else {
-                    Toast.makeText(requireContext(), "Please enter a search term", Toast.LENGTH_SHORT).show()
+                    viewModel.resetSearch()
                 }
             }
-        }
-    }
 
-    private fun performSearch(query: String) {
-        val filteredMeals = allMeals.filter { meal ->
-            meal.strMeal.contains(query, ignoreCase = true)
-        }
-        updateRecyclerView(filteredMeals)
-    }
-
-    private fun updateRecyclerView(filteredMeals: List<Meal>) {
-        (recyclerView.adapter as? MyAdapter)?.updateData(filteredMeals)
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     private fun setupFilter() {
         filterButton.setOnClickListener {
             Toast.makeText(requireContext(), "This feature is coming soon", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun updateRecyclerView(meals: List<Meal>) {
+        myAdapter.updateData(meals)
     }
 }

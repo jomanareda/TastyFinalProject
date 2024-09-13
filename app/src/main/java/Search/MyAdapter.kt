@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.tastyfinalproject.R
 import network.Meal
 
-class MyAdapter(private val recipeList: MutableList<Meal>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private var recipeList: List<Meal>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_design, parent, false)
@@ -20,23 +20,19 @@ class MyAdapter(private val recipeList: MutableList<Meal>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = recipeList[position]
 
-        // Load image using Glide
         Glide.with(holder.imageView.context)
-            .load(data.strMealThumb) // Load the URL from strMealThumb
-            .placeholder(R.drawable.placeholder_image) // Placeholder image until the URL loads
+            .load(data.strMealThumb)
+            .placeholder(R.drawable.placeholder_image)
             .into(holder.imageView)
 
         holder.title.text = data.strMeal
-        holder.desc.text = data.desc
+        holder.desc.text = data.strInstructions
     }
 
-    override fun getItemCount(): Int {
-        return recipeList.size
-    }
+    override fun getItemCount(): Int = recipeList.size
 
     fun updateData(newList: List<Meal>) {
-        recipeList.clear()
-        recipeList.addAll(newList)
+        recipeList = newList
         notifyDataSetChanged()
     }
 

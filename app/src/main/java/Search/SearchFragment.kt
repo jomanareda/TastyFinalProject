@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -24,6 +25,7 @@ class SearchFragment : Fragment() {
     private lateinit var searchTextInputLayout: TextInputLayout
     private lateinit var searchEditText: TextInputEditText
     private lateinit var filterButton: ImageButton
+    private lateinit var numberOfResults: TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
 
@@ -51,6 +53,7 @@ class SearchFragment : Fragment() {
         searchEditText = searchTextInputLayout.findViewById(R.id.searchText)
         filterButton = view.findViewById(R.id.filter)
         recyclerView = view.findViewById(R.id.SearchrecyclerView)
+        numberOfResults = view.findViewById(R.id.numberOfResults)
 
         setupRecyclerView()
         setupSearch()
@@ -91,5 +94,6 @@ class SearchFragment : Fragment() {
 
     private fun updateRecyclerView(meals: List<Meal>) {
         myAdapter.updateData(meals)
+        numberOfResults.text = "${meals.size.toString()} results"
     }
 }

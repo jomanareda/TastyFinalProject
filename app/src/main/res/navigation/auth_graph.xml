@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="authenitcation.homeeFragment"
+        android:name="authenitcation.homeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_homee" />
+        tools:layout="@layout/fragment_home" />
 </navigation>

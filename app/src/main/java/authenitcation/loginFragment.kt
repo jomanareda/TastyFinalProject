@@ -1,5 +1,6 @@
 package authenitcation
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -78,7 +79,7 @@ class loginFragment : Fragment() {
         loginViewModel.navigatetoHome.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 Log.i("MYTAG","inside observe")
-                navigateHome()
+                onLoginSuccess()
                 loginViewModel.doneNavigatingHome()
             }
         })
@@ -95,9 +96,18 @@ class loginFragment : Fragment() {
 
     }
 
-    private fun navigateHome() {
-        val intent = Intent(requireContext(), MainActivity::class.java)
-        startActivity(intent)
-        activity?.finish()
+//    private fun navigateHome() {
+//        val intent = Intent(requireContext(), MainActivity::class.java)
+//        startActivity(intent)
+//        activity?.finish()
+//    }
+    private fun onLoginSuccess() {
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putBoolean("isSignedIn", true)
+            apply()
+        }
+        (requireActivity() as authActivity).navigateToHome()
     }
+
 }

@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import authenitcation.database.RegisterDatabase
 import authenitcation.database.RegisterRepository
@@ -18,7 +17,7 @@ import authenitcation.login.LoginViewModel
 import authenitcation.login.LoginViewModelFactory
 import com.example.tastyfinalproject.R
 import com.example.tastyfinalproject.databinding.FragmentLoginBinding
-import com.example.tastyfinalproject.databinding.FragmentRegisterBinding
+import home.MainActivity
 
 class loginFragment : Fragment() {
 
@@ -76,11 +75,11 @@ class loginFragment : Fragment() {
             }
         })
 
-        loginViewModel.navigatetoUserDetails.observe(viewLifecycleOwner, Observer { hasFinished->
+        loginViewModel.navigatetoHome.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 Log.i("MYTAG","insidi observe")
-                navigateUserDetails()
-                loginViewModel.doneNavigatingUserDetails()
+                navigateHome()
+                loginViewModel.doneNavigatingHome()
             }
         })
 
@@ -96,12 +95,9 @@ class loginFragment : Fragment() {
 
     }
 
-    private fun navigateUserDetails() {
-//        Log.i("MYTAG","insidisplayUsersList")
-//        findNavController()
-//            .navigate(R.id.action_loginFragment_to_homeFragment)
-//        val intent = Intent(requireContext(), main::class.java)
-//        startActivity(intent)
-//        activity?.finish()
+    private fun navigateHome() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 }

@@ -77,7 +77,7 @@ class loginFragment : Fragment() {
 
         loginViewModel.navigatetoHome.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
-                Log.i("MYTAG","insidi observe")
+                Log.i("MYTAG","inside observe")
                 navigateHome()
                 loginViewModel.doneNavigatingHome()
             }

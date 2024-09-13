@@ -80,8 +80,6 @@ class LoginViewModel(private val repository: RegisterRepository, application: Ap
     }
 
 
-
-
     fun doneNavigatingRegiter() {
         _navigatetoRegister.value = false
     }

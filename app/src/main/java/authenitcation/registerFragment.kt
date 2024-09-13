@@ -68,7 +68,7 @@ class registerFragment : Fragment() {
 
         registerViewModel.errorPassword.observe(viewLifecycleOwner, Observer { hasError->
             if(hasError==true){
-                Toast.makeText(requireContext(), "passwords do match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "passwords do not match", Toast.LENGTH_SHORT).show()
                 registerViewModel.donePassword()
             }
         })

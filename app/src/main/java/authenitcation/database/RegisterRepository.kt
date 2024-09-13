@@ -14,8 +14,8 @@ class RegisterRepository(private val dao: RegisterDatabaseDao) {
         return dao.getUsername(userName)
     }
 
-    suspend fun deleteAll(): Int {
-        return dao.deleteAll()
-    }
+//    suspend fun deleteAll(): Int {
+//        return dao.deleteAll()
+//    }
 
 }

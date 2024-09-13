@@ -68,4 +68,18 @@
     <string name="name">Name</string>
     <string name="accept_terms_condition"><![CDATA[Accept terms & Condition]]></string>
     <string name="already_a_member">Already a member?</string>
+    <string name="soup">Soup</string>
+    <string name="meal">Meal</string>
+    <string name="all">All</string>
+    <string name="filter">Filter</string>
+    <string name="salad">Salad</string>
+    <string name="dessert">Dessert</string>
+    <string name="what_are_you_cooking_today">What are you cooking today?</string>
+    <string name="hello_chef">Hello Chef,</string>
+    <string name="search_recipe">\u00A0\u00A0\u00A0search recipe</string>
+    <string name="beef">Beef</string>
+    <string name="side">Side</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="_15_mins">15 mins</string>
+    <string name="time">Time: </string>
 </resources>

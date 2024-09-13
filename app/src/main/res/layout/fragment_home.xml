@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/greetingSection"
@@ -19,7 +21,7 @@
             android:id="@+id/greetingTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello Chef,"
+            android:text="@string/hello_chef"
             android:textSize="27sp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
@@ -28,10 +30,140 @@
             android:id="@+id/greetingSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What are you cooking today?"
+            android:text="@string/what_are_you_cooking_today"
             android:textSize="17sp"
             android:textColor="#8A7B7B"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/greetingSection">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:elevation="3dp"
+            app:errorTextColor="@color/grey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edit_text"
+                android:drawableStart="@drawable/search_nav"
+                android:inputType="text"
+                app:errorTextColor="@color/grey"
+                android:hint="@string/search_recipe" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/filterButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/green_background"
+            android:contentDescription="@string/filter"
+            android:src="@drawable/outline_filter" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/filterGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <RadioButton
+            android:id="@+id/buttonAll"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/filter_button_selector"
+            android:button="@null"
+            android:checked="true"
+            android:padding="10dp"
+            android:text="@string/all"
+            android:textColor="@color/filter_button_text_selector" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/buttonMeal"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/filter_button_selector"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/breakfast"
+            android:textColor="@color/filter_button_text_selector" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/buttonSoup"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/filter_button_selector"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/side"
+            android:textColor="@color/filter_button_text_selector" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/buttonSalad"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/filter_button_selector"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/beef"
+            android:textColor="@color/filter_button_text_selector" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/buttonDessert"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/filter_button_selector"
+            android:button="@null"
+            android:padding="9dp"
+            android:text="@string/dessert"
+            android:textColor="@color/filter_button_text_selector" />
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="33dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterGroup"
+        tools:spanCount="2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

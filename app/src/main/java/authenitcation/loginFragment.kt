@@ -1,5 +1,6 @@
 package authenitcation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -96,8 +97,11 @@ class loginFragment : Fragment() {
     }
 
     private fun navigateUserDetails() {
-        Log.i("MYTAG","insidisplayUsersList")
-        findNavController()
-            .navigate(R.id.action_loginFragment_to_homeFragment)
+//        Log.i("MYTAG","insidisplayUsersList")
+//        findNavController()
+//            .navigate(R.id.action_loginFragment_to_homeFragment)
+//        val intent = Intent(requireContext(), main::class.java)
+//        startActivity(intent)
+//        activity?.finish()
     }
 }

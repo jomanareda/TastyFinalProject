@@ -19,8 +19,7 @@ class FavouriteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            itemId = it.getString("ITEM_ID") // Retrieve the item ID
-            allMeals = it.getSerializable("allMeals") as List<Meal> // Retrieve the list of meals
+            itemId = it.getString("ITEM_ID")
         }
     }
 
@@ -47,15 +46,15 @@ class FavouriteFragment : Fragment() {
     }
 
     private fun performFilter(itemId: String) {
-        // Filter the meals based on the received itemId
+
         val filteredMeal = allMeals.filter { it.idMeal == itemId }
 
-        // Update the RecyclerView with the filtered meals
+
         updateRecyclerView(filteredMeal)
     }
 
     private fun updateRecyclerView(meals: List<Meal>) {
-        // Update the RecyclerView's adapter with the filtered list
+
         (recyclerView.adapter as MyAdapter).updateData(meals)
     }
 }

@@ -27,7 +27,6 @@ class registerFragment : Fragment() {
 
     private lateinit var registerViewModel: RegisterViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,6 +66,13 @@ class registerFragment : Fragment() {
             }
         })
 
+        registerViewModel.errorPassword.observe(viewLifecycleOwner, Observer { hasError->
+            if(hasError==true){
+                Toast.makeText(requireContext(), "passwords do match", Toast.LENGTH_SHORT).show()
+                registerViewModel.donePassword()
+            }
+        })
+
         registerViewModel.errotoastUsername.observe(viewLifecycleOwner, Observer { hasError->
             if(hasError==true){
                 Toast.makeText(requireContext(), "UserName Already taken", Toast.LENGTH_SHORT).show()
@@ -74,17 +80,12 @@ class registerFragment : Fragment() {
             }
         })
 
-
-
-        return view
+        return binding.root
     }
 
     private fun navigateToLogin() {
         Log.i("MYTAG","insidisplayUsersList")
         findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-
     }
-
-
 
 }

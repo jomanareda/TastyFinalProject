@@ -3,7 +3,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SharedFavotiteVM: ViewModel() {
+class SharedFavouriteVM: ViewModel() {
     private val _selectedMealId = MutableLiveData<String>()
     val selectedMealId: LiveData<String> get() = _selectedMealId
 
@@ -11,3 +11,4 @@ class SharedFavotiteVM: ViewModel() {
         _selectedMealId.value = mealId
     }
 }
+

@@ -151,6 +151,8 @@ class HomeFragment : Fragment() {
 //        finish()
 //    }
 
+
+
     private fun showError(errorMessage: String) {
         Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
         Log.e("API Error", errorMessage)

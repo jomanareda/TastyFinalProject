@@ -37,7 +37,11 @@ class SearchFragment : Fragment() {
         viewModel.meals.observe(this) { meals ->
             updateRecyclerView(meals)
         }
+
+
+
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +68,9 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        myAdapter = MyAdapter(emptyList())
+        myAdapter = MyAdapter(emptyList()) { meal ->
+            Toast.makeText(requireContext(), "Clicked on ${meal.strMeal}", Toast.LENGTH_SHORT).show()
+        }
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = myAdapter
     }
@@ -96,4 +102,6 @@ class SearchFragment : Fragment() {
         myAdapter.updateData(meals)
         numberOfResults.text = "${meals.size.toString()} results"
     }
+
 }
+

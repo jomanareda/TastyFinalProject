@@ -24,7 +24,7 @@ class SearchViewModel : ViewModel() {
     fun fetchMeals() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val response: Response<MealResponse> = RetrofitInstance.api.searchMeal("a").execute()
+                val response: Response<MealResponse> = RetrofitInstance.api.searchMeal("").execute()
                 if (response.isSuccessful) {
                     allMeals = response.body()?.meals ?: emptyList()
                     withContext(Dispatchers.Main) {

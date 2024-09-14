@@ -50,5 +50,5 @@ class authActivity : AppCompatActivity() {
 //            finish()
 //        }
 
-    }
+}
 

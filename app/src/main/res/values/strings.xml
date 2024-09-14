@@ -82,4 +82,8 @@
     <string name="breakfast">Breakfast</string>
     <string name="_15_mins">15 mins</string>
     <string name="time">Time: </string>
+    <string name="item_title">Item Title</string>
+    <string name="more">more</string>
+    <string name="about">About</string>
+    <string name="signout">Signout</string>
 </resources>

@@ -35,6 +35,20 @@
             android:textColor="#8A7B7B"/>
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/moreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/baseline_more_vert_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="16dp"
+        android:contentDescription="@string/more"/>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"

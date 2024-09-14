@@ -1,5 +1,5 @@
 package network
 
-data class MealResponse(
+data class  MealResponse(
     val meals: List<Meal>?
 )

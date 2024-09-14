@@ -104,7 +104,6 @@ class loginFragment : Fragment() {
         Log.i("MYTAG","navigate to register")
         findNavController()
             .navigate(R.id.action_loginFragment_to_registerFragment)
-
     }
 
     private fun navigateHome() {

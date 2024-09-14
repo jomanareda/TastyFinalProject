@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import com.example.tastyfinalproject.R
 import com.example.tastyfinalproject.databinding.ActivityRecipeBinding
 
-//import favorites.FavoritesFragment // Update with actual package
-//import search.SearchFragment   // Update with actual package
+import Favourite.FavouriteFragment // Update with actual package
+import Search.SearchFragment   // Update with actual package
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,14 +30,14 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(HomeFragment())
                     true
                 }
-//                R.id.favorites -> {
-//                    loadFragment(FavoritesFragment())
-//                    true
-//                }
-//                R.id.search -> {
-//                    loadFragment(SearchFragment())
-//                    true
-//                }
+                R.id.favourite -> {
+                    loadFragment(FavouriteFragment())
+                    true
+                }
+                R.id.search -> {
+                    loadFragment(SearchFragment())
+                    true
+                }
                 else -> false
             }
         }

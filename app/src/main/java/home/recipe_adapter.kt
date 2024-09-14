@@ -32,7 +32,7 @@ class ItemAdapter(private val itemList: List<Meal>) : RecyclerView.Adapter<ItemA
             .load(currentItem.strMealThumb)
             .placeholder(R.drawable.ic_launcher_foreground)
             .error(R.drawable.ic_launcher_foreground)
-            .into(holder.itemImage)
+           .into(holder.itemImage)
     }
 
     override fun getItemCount() = itemList.size

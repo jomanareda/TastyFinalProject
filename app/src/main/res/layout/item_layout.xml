@@ -29,6 +29,8 @@
             app:riv_corner_radius="75dp"
             android:visibility="visible"/>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

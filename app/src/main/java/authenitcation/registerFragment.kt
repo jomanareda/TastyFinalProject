@@ -46,6 +46,14 @@ class registerFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+        binding.facebookButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+        binding.googleButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+
+
         registerViewModel.navigateto.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 Log.i("MYTAG","insidi observe")
@@ -68,7 +76,7 @@ class registerFragment : Fragment() {
 
         registerViewModel.errorPassword.observe(viewLifecycleOwner, Observer { hasError->
             if(hasError==true){
-                Toast.makeText(requireContext(), "passwords do match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "passwords do not match", Toast.LENGTH_SHORT).show()
                 registerViewModel.donePassword()
             }
         })

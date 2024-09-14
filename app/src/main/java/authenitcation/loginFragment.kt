@@ -1,5 +1,6 @@
 package authenitcation
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -46,6 +47,16 @@ class loginFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+        binding.facebookButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+        binding.googleButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+        binding.forgetPassword.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+
         loginViewModel.navigatetoRegister.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 Log.i("MYTAG","insidi observe")
@@ -77,7 +88,7 @@ class loginFragment : Fragment() {
 
         loginViewModel.navigatetoHome.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
-                Log.i("MYTAG","insidi observe")
+                Log.i("MYTAG","inside observe")
                 navigateHome()
                 loginViewModel.doneNavigatingHome()
             }
@@ -100,4 +111,13 @@ class loginFragment : Fragment() {
         startActivity(intent)
         activity?.finish()
     }
+//    private fun onLoginSuccess() {
+//        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//        with(sharedPreferences.edit()) {
+//            putBoolean("isSignedIn", true)
+//            apply()
+//        }
+//        (requireActivity() as authActivity).navigateToHome()
+//    }
+
 }

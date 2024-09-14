@@ -12,6 +12,7 @@ import Favourite.SharedFavouriteVM
 import Search.SearchFragment   // Update with actual package
 import android.content.Context
 import android.content.Intent
+import android.widget.ImageButton
 import androidx.lifecycle.ViewModelProvider
 import authenitcation.authActivity
 
@@ -21,9 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-//        val isSignIn = sharedPreferences.getBoolean("isSignedIn", false)
 
         binding = ActivityRecipeBinding.inflate(layoutInflater)
         setContentView(binding.root)

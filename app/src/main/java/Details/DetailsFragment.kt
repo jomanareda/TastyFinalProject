@@ -1,5 +1,6 @@
 package Details
 
+import Favourite.SharedFavotiteVM
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,16 +24,13 @@ class DetailsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: MealViewModel by viewModels()
+    private lateinit var viewModelfv: SharedFavotiteVM
+
+
+
+
 
     private var isVideoPlaying = false
-
-//
-//    private val sharedPreferences by lazy {
-//        requireContext().getSharedPreferences("favorite_meals", Context.MODE_PRIVATE)
-//    }
-//    private val editor by lazy {
-//        sharedPreferences.edit()
-//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,8 +54,8 @@ class DetailsFragment : Fragment() {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
 
 
-//        // Assuming you have a mealId to fetch. Replace "52772" with the actual ID.
-//        viewModel.fetchMeal("52772")
+//
+       viewModel.fetchMeal("52772")
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -69,14 +67,12 @@ class DetailsFragment : Fragment() {
             floatingButton.visibility = View.VISIBLE
             var isVideoPlaying = false
         }
+        viewModelfv= ViewModelProvider(requireActivity()).get(SharedFavotiteVM::class.java)
 
 
-
-      binding.favourite.setOnClickListener {
-            sharedFavoriteVM = ViewModelProvider(requireActivity()).get(SharedFavoriteVM::class.java)
-
-            sharedFavoriteVM.setSelectedMealId("###########")
-        }
+        binding.favourite.setOnClickListener {
+            val mealId = "52977"
+            viewModelfv.setSelectedMealId(mealId)        }
 
         viewModel.meal.observe(viewLifecycleOwner, Observer { meal ->
             meal?.let {
@@ -118,24 +114,6 @@ class DetailsFragment : Fragment() {
 
 
     }
-//
-//    private fun toggleFavorite(mealId: String) {
-//        val isFavorite = sharedPreferences.contains(mealId)
-//        if (isFavorite) {
-//            editor.remove(mealId).apply()
-//        } else {
-//            editor.putBoolean(mealId, true).apply()
-//        }
-//    }
-//
-//    private fun updateFavoriteButton(mealId: String) {
-//        val iconResId = if (sharedPreferences.contains(mealId)) {
-//            R.drawable.baseline_favorite_24
-//        } else {
-//            R.drawable.baseline_favorite_border_24
-//        }
-//        binding.favourite.setImageResource(iconResId)
-//    }
 
 }
 

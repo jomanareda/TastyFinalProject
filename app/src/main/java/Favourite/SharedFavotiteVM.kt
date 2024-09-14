@@ -4,10 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SharedFavotiteVM: ViewModel() {
-    private val _selectedMealId = MutableLiveData<String>()
+     val _selectedMealId = MutableLiveData<String>()
     val selectedMealId: LiveData<String> get() = _selectedMealId
 
     fun setSelectedMealId(mealId: String) {
         _selectedMealId.value = mealId
     }
-}
+
+
+    }
+
+
+

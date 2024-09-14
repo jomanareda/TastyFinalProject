@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="authenitcation.loginFragment"
-    android:background="@color/white">
+    tools:context="authenitcation.loginFragment">
+
+    <data>
+        <variable
+            name="myLoginViewModel"
+            type="authenitcation.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideEnd"
@@ -74,6 +82,7 @@
         android:ems="30"
         android:inputType="textEmailAddress"
         android:hint="@string/enter_email"
+        android:text="@={myLoginViewModel.inputEmail}"
         android:background="@drawable/edittext"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
@@ -105,6 +114,7 @@
         android:autofillHints="password"
         android:ems="30"
         android:hint="@string/enter_password"
+        android:text="@={myLoginViewModel.inputPassword}"
         android:inputType="textPassword"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/guideStart"
@@ -126,6 +136,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="@string/sign_in"
+        android:onClick="@{()->myLoginViewModel.loginButton()}"
         android:layout_marginTop="20dp"
         android:paddingEnd="120dp"
         android:paddingStart="120dp"
@@ -201,6 +212,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="@string/sing_up"
+        android:onClick="@{()->myLoginViewModel.signUP()}"
         android:textColor="@color/orange"
         android:textSize="15sp"
         android:gravity="center"
@@ -209,4 +221,7 @@
         app:layout_constraintStart_toEndOf="@id/dontHaveAccount"
         app:layout_constraintTop_toBottomOf="@+id/facebookButton"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

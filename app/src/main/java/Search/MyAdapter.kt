@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.tastyfinalproject.R
 import network.Meal
 
-class MyAdapter(private var recipeList: List<Meal>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private var recipeList: List<Meal> , private val onItemClick: (Meal) -> Unit ) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_design, parent, false)
@@ -27,6 +27,13 @@ class MyAdapter(private var recipeList: List<Meal>) : RecyclerView.Adapter<MyAda
 
         holder.title.text = data.strMeal
         holder.desc.text = data.strInstructions
+
+        holder.itemView.setOnClickListener {
+            onItemClick(data)
+        }
+
+
+
     }
 
     override fun getItemCount(): Int = recipeList.size

@@ -18,7 +18,7 @@ import retrofit2.Response
 import android.util.Log
 import Favourite.SharedFavotiteVM
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
+//import androidx.navigation.fragment.findNavController
 import android.widget.RadioGroup
 //import androidx.appcompat.widget.PopupMenu
 //import android.widget.ImageButton
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
         adapter = ItemAdapter(itemList) { selectedMeal ->
             // Handle item click here
             sharedViewModel.setSelectedMealId(selectedMeal.idMeal)
-            findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
+//            findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
         }
 
         recyclerView.layoutManager = GridLayoutManager(context, 2)

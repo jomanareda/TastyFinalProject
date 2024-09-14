@@ -67,4 +67,5 @@ data class Meal(
 
     val strYoutube: String?
 
+
 )

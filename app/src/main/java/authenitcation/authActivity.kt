@@ -40,16 +40,16 @@ class authActivity : AppCompatActivity() {
 //        navController = navHostFragment.navController
 
 // Load the splash fragment
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_auth, SplashFragment())
-            .commit()
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.nav_host_fragment_auth, SplashFragment())
+//            .commit()
 
     }
-        fun navigateToHome() {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        fun navigateToHome() {
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
     }
 

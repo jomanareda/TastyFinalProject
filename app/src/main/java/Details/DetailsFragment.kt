@@ -1,6 +1,6 @@
 package Details
 
-import Favourite.SharedFavotiteVM
+import Favourite.SharedFavouriteVM
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,11 +25,9 @@ class DetailsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: MealViewModel by viewModels()
-    private lateinit var viewModelfv: SharedFavotiteVM
+    private lateinit var viewModelfv: SharedFavouriteVM
 
-
-
-
+    private val sharedViewModel: SharedFavouriteVM by activityViewModels()
 
     private var isVideoPlaying = false
 
@@ -49,13 +48,22 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        sharedViewModel.selectedMealId.observe(viewLifecycleOwner, Observer { mealId ->
+            mealId?.let {
+                // Fetch the meal details using mealId and update the UI
+                viewModel.fetchMeal(mealId)
+            }
+        })
+
+
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.sheet)
         bottomSheetBehavior.peekHeight = 300
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
 
 
 //
-       viewModel.fetchMeal("52772")
+//       viewModel.fetchMeal("52772")
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -67,7 +75,7 @@ class DetailsFragment : Fragment() {
             floatingButton.visibility = View.VISIBLE
             var isVideoPlaying = false
         }
-        viewModelfv= ViewModelProvider(requireActivity()).get(SharedFavotiteVM::class.java)
+        viewModelfv= ViewModelProvider(requireActivity()).get(SharedFavouriteVM::class.java)
 
 
         binding.favourite.setOnClickListener {
@@ -115,5 +123,6 @@ class DetailsFragment : Fragment() {
 
     }
 
-}
+    }
+
 

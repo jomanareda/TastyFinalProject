@@ -24,12 +24,16 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Check sign-in status
-        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
+
+//        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//        val isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
+
+
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (findNavController().currentDestination?.id == R.id.splashFragment) {
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+//my trying
 //                if (isSignedIn) {
 //                    (requireActivity() as authActivity).navigateToHome()
 //                } else {

@@ -47,6 +47,16 @@ class loginFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+        binding.facebookButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+        binding.googleButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+        binding.forgetPassword.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon", Toast.LENGTH_SHORT).show()
+        }
+
         loginViewModel.navigatetoRegister.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 Log.i("MYTAG","insidi observe")

@@ -66,6 +66,7 @@ class LoginViewModel(private val repository: RegisterRepository, application: Ap
                 val usersNames = repository.getUserName(inputEmail.value!!)
                 if (usersNames != null) {
                     if(usersNames.passwrd == inputPassword.value){
+                        
                         inputEmail.value = ""
                         inputPassword.value = ""
                         _navigatetoHome.value = true

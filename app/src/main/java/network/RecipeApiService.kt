@@ -10,4 +10,7 @@ interface RecipeApiService {
 
     @GET("api/json/v1/1/filter.php")
     fun filterMealsByIngredient(@Query("i") ingredient: String): Call<MealResponse>
+
+    @GET("lookup.php")
+    fun getMeal(@Query("i") mealId: String): Call<MealResponse>
 }

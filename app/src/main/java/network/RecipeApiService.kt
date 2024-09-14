@@ -10,4 +10,11 @@ interface RecipeApiService {
 
     @GET("api/json/v1/1/filter.php")
     fun filterMealsByIngredient(@Query("i") ingredient: String): Call<MealResponse>
+
+    @GET("api/json/v1/1/search.php")
+    fun searchMealByLetter(@Query("f") firstLetter: String): Call<MealResponse>
+
+    @GET("api/json/v1/1/filter.php")
+    fun filterMealsByCategory(@Query("c") category: String): Call<MealResponse>
+
 }

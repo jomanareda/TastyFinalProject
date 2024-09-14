@@ -25,22 +25,22 @@ class SplashFragment : Fragment() {
 
         // Check sign-in status
 
-        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
+//        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//        val isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
 
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-           // if (findNavController().currentDestination?.id == R.id.splashFragment) {
-             //   findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            if (findNavController().currentDestination?.id == R.id.splashFragment) {
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
 //my trying
-                if (isSignedIn) {
-                    (requireActivity() as authActivity).navigateToHome()
-                } else {
-                    // Show login fragment if the user is not signed in
-                    requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment_auth, loginFragment())
-                        .commit()
+//                if (isSignedIn) {
+//                    (requireActivity() as authActivity).navigateToHome()
+//                } else {
+//                    // Show login fragment if the user is not signed in
+//                    requireActivity().supportFragmentManager.beginTransaction()
+//                        .replace(R.id.nav_host_fragment_auth, loginFragment())
+//                        .commit()
             }
         }, 4000) // 4000 milliseconds delay
     }

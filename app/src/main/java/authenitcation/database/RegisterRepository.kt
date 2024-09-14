@@ -9,9 +9,10 @@ class RegisterRepository(private val dao: RegisterDatabaseDao) {
         return dao.insert(user)
     }
 
-    suspend fun getUserName(userName: String):RegisterEntity?{
+    suspend fun getUserName(userEmail: String):RegisterEntity?{
         Log.i("MYTAG", "inside Repository Getusers fun ")
-        return dao.getUsername(userName)
+        return dao.getUsername(userEmail)
+
     }
 
 //    suspend fun deleteAll(): Int {

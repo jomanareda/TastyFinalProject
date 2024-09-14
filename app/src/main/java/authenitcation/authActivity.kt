@@ -33,7 +33,6 @@ class authActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
 // to navigate between fragment
 //        val navHostFragment = supportFragmentManager
 //            .findFragmentById(R.id.nav_host_fragment_auth) as NavHostFragment
@@ -45,11 +44,11 @@ class authActivity : AppCompatActivity() {
 //            .commit()
 
     }
-//        fun navigateToHome() {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        fun navigateToHome() {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 

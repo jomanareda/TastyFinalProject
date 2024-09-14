@@ -17,19 +17,22 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
 import Favourite.SharedFavouriteVM
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.fragment.app.activityViewModels
-//import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.findNavController
 import android.widget.RadioGroup
-//import androidx.appcompat.widget.PopupMenu
-//import android.widget.ImageButton
-//import authenitcation.authActivity
+import androidx.appcompat.widget.PopupMenu
+import android.widget.ImageButton
+import authenitcation.authActivity
 
 class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private val itemList = mutableListOf<Meal>()
     private lateinit var adapter: ItemAdapter
-//    private lateinit var moreButton: ImageButton
+    private lateinit var moreButton: ImageButton
     private val sharedViewModel: SharedFavouriteVM by activityViewModels()
     private lateinit var filterGroup: RadioGroup
 
@@ -72,9 +75,9 @@ class HomeFragment : Fragment() {
             }
         }
 
-//        moreButton.setOnClickListener {
-//            showPopupMenu(it)
-//        }
+        moreButton.setOnClickListener {
+            showPopupMenu(it)
+        }
         fetchMeals()
     }
 
@@ -119,38 +122,34 @@ class HomeFragment : Fragment() {
             }
         })
     }
-//    private fun showPopupMenu(view: View) {
-//        val popupMenu = PopupMenu(requireContext(), view)
-//        popupMenu.menuInflater.inflate(R.menu.more_menu, popupMenu.menu)
-//        popupMenu.setOnMenuItemClickListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.about -> {
-//                    fun onLoginSuccess() {
-//                        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-//                        with(sharedPreferences.edit()) {
-//                            putBoolean("isSignedIn", fasle)
-//                            apply()
-//                        }
-//                        (requireActivity() as authActivity).navigateToLogin()
-//                    }
-//                    true
-//                }
-//                R.id.signout -> {
-//                    Toast.makeText(context, "about selected", Toast.LENGTH_SHORT).show()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-//        popupMenu.show()
-//    }
+    private fun showPopupMenu(view: View) {
+        val popupMenu = PopupMenu(requireContext(), view)
+        popupMenu.menuInflater.inflate(R.menu.more_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.about -> {
+                    Toast.makeText(context, "about selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.signout -> {
+                    signOut()
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
+    }
 
-//    fun navigateToLogin() {
-//        val intent = Intent(this, authActivity::class.java)
-//        startActivity(intent)
-//        finish()
-//    }
+    private fun signOut() {
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putBoolean("isSignedIn", false)
+            apply()
+        }
 
+        (requireActivity() as MainActivity).navigateToLogin()
+    }
 
 
     private fun showError(errorMessage: String) {

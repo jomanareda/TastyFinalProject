@@ -52,7 +52,7 @@ class LoginViewModel(private val repository: RegisterRepository, application: Ap
     val errorToastInvalidPassword: LiveData<Boolean>
         get() = _errorToastInvalidPassword
 
-
+ 
 
     fun signUP() {
         _navigatetoRegister.value = true

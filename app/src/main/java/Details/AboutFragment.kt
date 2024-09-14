@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.tastyfinalproject.R
 
 
-class AboutFragment : Fragment() {
+class  AboutFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

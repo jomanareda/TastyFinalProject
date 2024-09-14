@@ -8,7 +8,9 @@ import com.example.tastyfinalproject.R
 import com.example.tastyfinalproject.databinding.ActivityRecipeBinding
 
 import Favourite.FavouriteFragment // Update with actual package
+import Favourite.SharedFavouriteVM
 import Search.SearchFragment   // Update with actual package
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,4 +50,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_layout, fragment)
             .commit()
     }
+
+
 }

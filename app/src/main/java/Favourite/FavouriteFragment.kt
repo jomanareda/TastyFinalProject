@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.MyAdapter
 import com.example.tastyfinalproject.R
 import network.Meal
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 
 
@@ -24,7 +24,7 @@ class FavouriteFragment : Fragment() {
     private lateinit var myAdapter: MyAdapter
     private var allMeals: List<Meal> = emptyList()
     private val viewModel: SearchViewModel by viewModels()
-    private val sharedViewModel: SharedFavotiteVM by viewModels()
+    private val sharedViewModel: SharedFavouriteVM by viewModels()
     private var favoriteMeals: List<Meal> = emptyList()
 
     override fun onCreateView(
@@ -46,6 +46,8 @@ class FavouriteFragment : Fragment() {
 
         sharedViewModel.selectedMealId.observe(viewLifecycleOwner, Observer { mealId ->
             mealId?.let {
+                Log.d("xx", "mealId: ${it}")
+
                 addFavoriteMealId(it)
                 filterAndUpdateRecyclerView()
             }
@@ -54,14 +56,16 @@ class FavouriteFragment : Fragment() {
     }
 
     override fun onStart() {
-//        addFavoriteMealId("52977")
+        addFavoriteMealId("52977")
 
         super.onStart()
     }
 
 
     private fun setupRecyclerView() {
-        myAdapter = MyAdapter(emptyList())
+        myAdapter = MyAdapter(emptyList()) { meal ->
+            Toast.makeText(requireContext(), "Clicked on ${meal.strMeal}", Toast.LENGTH_SHORT).show()
+        }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = myAdapter
     }

@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
-import Favourite.SharedFavotiteVM
+import Favourite.SharedFavouriteVM
 import androidx.fragment.app.activityViewModels
 //import androidx.navigation.fragment.findNavController
 import android.widget.RadioGroup
@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
     private val itemList = mutableListOf<Meal>()
     private lateinit var adapter: ItemAdapter
 //    private lateinit var moreButton: ImageButton
-    private val sharedViewModel: SharedFavotiteVM by activityViewModels()
+    private val sharedViewModel: SharedFavouriteVM by activityViewModels()
     private lateinit var filterGroup: RadioGroup
 
     override fun onCreateView(

@@ -87,7 +87,7 @@ class RegisterViewModel(private val repository: RegisterRepository, application:
                         val password = inputPassword.value!!
                         val ConfirmPassword = inputConfirmPassword.value!!
                         Log.i("MYTAG", "insidi Sumbit")
-                        insert(RegisterEntity(0, Name, ConfirmPassword, email, password))
+                        insert(RegisterEntity(0, name = Name, userEmail =  email,  passwrd = password,confirmPassword =  ConfirmPassword))
                         inputName.value = ""
                         inputConfirmPassword.value =""
                         inputEmail.value = ""

@@ -44,11 +44,11 @@ class authActivity : AppCompatActivity() {
 //            .commit()
 
     }
-//        fun navigateToHome() {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        fun navigateToHome() {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 }
 

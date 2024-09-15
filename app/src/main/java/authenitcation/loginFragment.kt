@@ -106,11 +106,13 @@ class loginFragment : Fragment() {
             .navigate(R.id.action_loginFragment_to_registerFragment)
     }
 
+//use if without shared preferences
 //    private fun navigateHome() {
 //        val intent = Intent(requireContext(), MainActivity::class.java)
 //        startActivity(intent)
 //        activity?.finish()
 //    }
+
     private fun onLoginSuccess() {
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         with(sharedPreferences.edit()) {

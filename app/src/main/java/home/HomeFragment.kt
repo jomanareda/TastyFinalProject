@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
@@ -48,6 +49,7 @@ class HomeFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         filterGroup = view.findViewById(R.id.filterGroup)
+        moreButton = view.findViewById(R.id.moreButton)
 
         adapter = ItemAdapter(itemList) { selectedMeal ->
             // Handle item click here

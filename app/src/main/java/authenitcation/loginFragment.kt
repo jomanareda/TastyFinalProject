@@ -89,8 +89,8 @@ class loginFragment : Fragment() {
         loginViewModel.navigatetoHome.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 Log.i("MYTAG","inside observe")
-                navigateHome()
-               // onLoginSuccess()
+               // navigateHome()
+                onLoginSuccess()
                 loginViewModel.doneNavigatingHome()
             }
         })
@@ -106,18 +106,20 @@ class loginFragment : Fragment() {
             .navigate(R.id.action_loginFragment_to_registerFragment)
     }
 
-    private fun navigateHome() {
-        val intent = Intent(requireContext(), MainActivity::class.java)
-        startActivity(intent)
-        activity?.finish()
-    }
-//    private fun onLoginSuccess() {
-//        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-//        with(sharedPreferences.edit()) {
-//            putBoolean("isSignedIn",true)
-//            apply()
-//        }
-//        (requireActivity() as authActivity).navigateToHome()
+//use if without shared preferences
+//    private fun navigateHome() {
+//        val intent = Intent(requireContext(), MainActivity::class.java)
+//        startActivity(intent)
+//        activity?.finish()
 //    }
+
+    private fun onLoginSuccess() {
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putBoolean("isSignedIn",true)
+            apply()
+        }
+        (requireActivity() as authActivity).navigateToHome()
+    }
 
 }

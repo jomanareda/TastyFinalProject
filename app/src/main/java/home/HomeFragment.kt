@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
         adapter = ItemAdapter(itemList) { selectedMeal ->
             // Handle item click here
             sharedViewModel.setSelectedMealId(selectedMeal.idMeal)
-//            findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
+           findNavController().navigate(R.id.action_homeFragment_to_detailsFragment2)
         }
 
         recyclerView.layoutManager = GridLayoutManager(context, 2)

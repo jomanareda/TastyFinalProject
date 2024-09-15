@@ -269,6 +269,8 @@
         android:layout_height="0dp"
         android:text="@string/sign_in"
         android:onClick="@{()->myViewModel.signInTextButton()}"
+        android:layout_marginStart="5dp"
+
         android:textColor="@color/orange"
         android:textSize="15sp"
         android:gravity="center"

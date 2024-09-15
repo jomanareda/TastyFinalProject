@@ -25,8 +25,8 @@ class SplashFragment : Fragment() {
 
         // Check sign-in status
 
-        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
+//        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//        val isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
 
 
 

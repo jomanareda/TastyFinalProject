@@ -19,7 +19,7 @@ class authActivity : AppCompatActivity() {
 
 //    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityAuthBinding
-//    private  lateinit var  navController: NavController
+    private  lateinit var  navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +34,9 @@ class authActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 // to navigate between fragment
-//        val navHostFragment = supportFragmentManager
-//            .findFragmentById(R.id.nav_host_fragment_auth) as NavHostFragment
-//        navController = navHostFragment.navController
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment_auth) as NavHostFragment
+        navController = navHostFragment.navController
 
 // Load the splash fragment
 //        supportFragmentManager.beginTransaction()
@@ -44,11 +44,11 @@ class authActivity : AppCompatActivity() {
 //            .commit()
 
     }
-        fun navigateToHome() {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        fun navigateToHome() {
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
 }
 

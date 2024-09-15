@@ -90,7 +90,7 @@ class loginFragment : Fragment() {
             if (hasFinished == true){
                 Log.i("MYTAG","inside observe")
                 navigateHome()
-//                onLoginSuccess()
+               // onLoginSuccess()
                 loginViewModel.doneNavigatingHome()
             }
         })
@@ -114,7 +114,7 @@ class loginFragment : Fragment() {
 //    private fun onLoginSuccess() {
 //        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 //        with(sharedPreferences.edit()) {
-//            putBoolean("isSignedIn", true)
+//            putBoolean("isSignedIn",true)
 //            apply()
 //        }
 //        (requireActivity() as authActivity).navigateToHome()

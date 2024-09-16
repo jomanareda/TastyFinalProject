@@ -26,11 +26,7 @@ class IngredientAdapter (private val ingredients: List<Pair<String?, String?>>) 
         val (ingredient, measure) = ingredients[position]
         holder.ingredientName.text = ingredient
         holder.ingredientMeasure.text = measure
-
-        // Load a placeholder image or a relevant image
-        Glide.with(holder.itemView.context)
-            .load("https://media.gettyimages.com/id/1173102150/photo/assortment-of-various-types-of-superfoods.jpg?s=612x612&w=gi&k=20&c=RDie1btgZiFciqpvcr-XEnxkWb6GKpbbmfgRExKgUOo=")
-            .into(holder.ingredientImage)
+        holder.ingredientImage.setImageResource(R.drawable.ic_launcher_foreground)
     }
 
     override fun getItemCount() = ingredients.size

@@ -1,6 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="item_left_spacing">8dp</dimen>
+    <dimen name="item_left_spacing">12dp</dimen>
     <dimen name="item_right_spacing">8dp</dimen>
-    <dimen name="item_bottom_spacing">35dp</dimen>
+    <dimen name="item_bottom_spacing">15dp</dimen>
 </resources>

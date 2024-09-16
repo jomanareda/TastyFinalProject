@@ -17,6 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
 import Favourite.SharedFavouriteVM
+import home.MainActivity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -52,9 +53,9 @@ class HomeFragment : Fragment() {
         moreButton = view.findViewById(R.id.moreButton)
 
         adapter = ItemAdapter(itemList) { selectedMeal ->
-            // Handle item click here
+            // Navigate to detailsFragment when an item is clicked
             sharedViewModel.setSelectedMealId(selectedMeal.idMeal)
-           findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
         }
 
         recyclerView.layoutManager = GridLayoutManager(context, 2)
@@ -149,8 +150,11 @@ class HomeFragment : Fragment() {
             putBoolean("isSignedIn", false)
             apply()
         }
+        moreButton.setOnClickListener {
+            // Navigate to LoginFragment
+            findNavController().navigate(R.id.action_homeFragment_to_loginFragment2)
+        }
 
-        (requireActivity() as MainActivity).navigateToLogin()
     }
 
 

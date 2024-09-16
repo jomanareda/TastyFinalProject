@@ -49,6 +49,11 @@ class authActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    fun navigateToLogin() {
+        val intent = Intent(this, authenitcation.authActivity::class.java)
+        startActivity(intent)
+        finish()  // This will close the current activity (MainActivity)
+    }
 
 }
 

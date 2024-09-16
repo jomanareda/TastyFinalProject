@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph"
     app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="Favourite.FavouriteFragment"
+        android:label="FavouriteFragment" />
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="home.HomeFragment"
         android:label="HomeFragment" >
         <action
-            android:id="@+id/action_homeFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment2" />
-        <action
             android:id="@+id/action_homeFragment_to_favouriteFragment"
             app:destination="@id/favouriteFragment" />
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
     </fragment>
-    <fragment
-        android:id="@+id/detailsFragment2"
-        android:name="Details.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
-    <fragment
-        android:id="@+id/favouriteFragment"
-        android:name="Favourite.FavouriteFragment"
-        android:label="FavouriteFragment" />
+
     <fragment
         android:id="@+id/searchFragment"
         android:name="Search.SearchFragment"
         android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="Details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="authenitcation.loginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+
 </navigation>

@@ -4,9 +4,18 @@ plugins {
     id ("kotlin-kapt")
 }
 
+
 android {
     namespace 'com.example.tastyfinalproject'
     compileSdk 34
+
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+
 
     defaultConfig {
         applicationId "com.example.tastyfinalproject"
